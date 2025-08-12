@@ -11,3 +11,40 @@
 .ce {
     text-align: center;
 }
+
+.footer-about-me {
+    background-color: #f8f9fa; /* フッターの背景色 */
+    color: #333; /* 文字色 */
+    padding: 30px 20px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+  .footer-about-me h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  .footer-about-me p {
+    margin-bottom: 10px;
+  }
+  .footer-about-me ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 15px 0;
+  }
+  .footer-about-me li {
+    display: inline;
+    margin: 0 10px;
+  }
+  .footer-about-me a {
+    color: #007bff; /* リンクの色 */
+    text-decoration: none;
+  }
+  .footer-about-me a:hover {
+    text-decoration: underline;
+  }
+  .footer-copyright {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #6c757d;
+  }
