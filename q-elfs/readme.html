@@ -1,0 +1,276 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Read me</title>
+    <style>
+        dt {
+            margin-top: 1em;
+            padding: 0 2em;
+            color: #FFF;
+            text-shadow: 1px 1px rgba(0,0,0,.4);
+            background-color: #de8a9d;
+        }
+
+        dd {
+            padding: 0 1em;
+            margin-left: 0;
+            font-size: .9em;
+            border-width: 0 1px 1px;
+            border-style: none solid solid;
+            border-color: #de8a9d;
+        }
+
+        ul, ol {
+            color: #1e366a;
+            border-top: solid #1e366a 1px; /*上のボーダー*/
+            border-bottom: solid #1e366a 1px; /*下のボーダー*/
+            padding: 0.5em 0 0.5em 1.5em;
+        }
+
+            ul li, ol li {
+                line-height: 1.5;
+                padding: 0.5em 0;
+            }
+
+        h1 {
+            position: relative;
+            padding-left: 25px;
+        }
+
+            h1:before {
+                position: absolute;
+                content: '';
+                bottom: -3px;
+                left: 0;
+                width: 0;
+                height: 0;
+                border: none;
+                border-left: solid 15px transparent;
+                border-bottom: solid 15px rgb(119, 195, 223);
+            }
+
+            h1:after {
+                position: absolute;
+                content: '';
+                bottom: -3px;
+                left: 10px;
+                width: 100%;
+                border-bottom: solid 3px rgb(119, 195, 223);
+            }
+
+        code {
+            font-family: Consolas, Menlo, Monaco, -apple-system, BlinkMacSystemFont, "Segoe UI", Meiryo, monospace;
+        }
+
+        pre {
+            padding: 1em;
+            /* 内側の余白 */
+            /*margin: 0 0 1.5em;*/
+            /* 外側の余白 */
+            border: solid 1px #eaedf2;
+            /* 枠線 */
+            background: #f3f6fc;
+            /* 背景色 */
+            color: #54687c;
+            /* 文字色 */
+        }
+
+        hr {
+            height: 0;
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+
+        hr {
+            height: 5px;
+            background-image: repeating-linear-gradient(45deg,rgb(52, 208, 17) 0, rgb(52, 208, 17) 1px, transparent 0, transparent 50%);
+            background-size: 5px 5px;
+        }
+
+        kbd {
+            background-color: #f6f8fa; /* とても薄いグレー */
+            border: 1px solid rgba(27, 31, 35, 0.15);
+            border-bottom-color: #c6cbd1; /* 下の枠線を少し濃くして立体感を出す */
+            border-radius: 6px;
+            box-shadow: inset 0 -1px 0 #c6cbd1; /* 内側下にわずかな影 */
+            color: #24292e;
+            display: inline-block;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            font-size: 0.85em; /* 周りの文字より少し小さくする */
+            padding: 3px 6px;
+            vertical-align: middle; /* 周りの文字との位置を調整 */
+            transition: all 0.1s ease-in-out;
+            user-select: none;
+            margin: 0 4px;
+        }
+        /* bタグの基本スタイル */
+        b {
+            display: inline-block; /* 背景やpaddingを正しく適用するため */
+            padding: 0.4em 0.8em; /* 文字の周りの余白 */
+            font-size: 0.85em; /* 周りの文字より少し小さくする */
+            font-weight: 600; /* フォントの太さ */
+            line-height: 1; /* 行の高さを調整 */
+            border-radius: 1em; /* 角を丸くする（em単位でフォントサイズに連動）*/
+            vertical-align: middle; /* 周りの文字との位置を調整 */
+            margin: 0 2px;
+        }
+
+            /* 色のバリエーション（クラスで指定） */
+            b.s {
+                background-color: #eef2ff; /* 背景色（薄い青紫） */
+                color: #4338ca; /* 文字色（濃い青紫） */
+            }
+
+            b.status {
+                background-color: #e0f2fe; /* 背景色（薄い水色） */
+                color: #0284c7; /* 文字色（濃い水色） */
+            }
+
+            b.b {
+                background-color: #fff1f2; /* 背景色（薄いピンク） */
+                color: #be123c; /* 文字色（濃いピンク） */
+            }
+        /* アイコンとツールチップの親要素 */
+        .info-icon {
+            position: relative; /* ツールチップの位置の基準点にする */
+            cursor: help; /* マウスカーソルを「ヘルプ」アイコンにする */
+            display: inline-block; /* 位置調整をしやすくする */
+        }
+
+            /* ツールチップのテキスト（普段は非表示） */
+            .info-icon .tooltip-text {
+                visibility: hidden;
+                opacity: 0;
+                width: 250px;
+                background-color: #333;
+                color: #fff;
+                text-align: left;
+                border-radius: 6px;
+                padding: 10px;
+                /* ツールチップの位置 */
+                position: absolute;
+                z-index: 1;
+                bottom: 150%; /* アイコンの上側に配置 */
+                left: 50%;
+                transform: translateX(-50%); /* 中央揃えにするテクニック */
+
+                transition: opacity 0.3s ease;
+            }
+
+            /* アイコンにマウスが乗ったらツールチップを表示 */
+            .info-icon:hover .tooltip-text {
+                visibility: visible;
+                opacity: 1;
+            }
+    </style>
+</head>
+<body>
+    <h1>q-elf配列について</h1>
+    <h2>配列説明</h2>
+    <h1>初期状態</h1>
+    <p>
+        初期状態は下の画像のようになっています。この状態を以下，<b class="s">子音配列</b>と呼びます。
+    </p>
+
+    <img src="hajime.png" />
+    <p>
+        <kbd>T</kbd>と<kbd>N</kbd>の下部にある茶線はホームポジションを表しています。<br />
+        スラッシュ<kbd>╲</kbd>のキーは割り当てがないことを意味します。
+    </p>
+
+
+
+    <h1>記号説明</h1>
+
+    <img src="migishitayajirushi.png" />
+    <p>
+        <b class="s">子音配列</b>の状態の時，赤丸で囲まれた矢印のあるキーを押すとそのキーに対応する子音が選択され直ちに<b class="b">母音配列</b>(後述)へと変遷します。
+    </p>
+    <hr>
+    <img src="dirwake.png" />
+    <p>
+        <kbd>Y</kbd>と<kbd>H</kbd>の上部にある茶丸は左右の境界線を表しています。緑がかったキーが左，黄色がかったキーが右の境界線です。<br />
+        これらの区別は，母音選択の時に清音と濁音の決定に影響します。<kbd>P</kbd><kbd>F</kbd><kbd>J</kbd>キーは左右の区別はなく，どのような母音を選択しても半濁点(パ行)になります。
+    </p>
+    <hr>
+    <img src="keymodestumei.png">
+    <p>
+        右下赤枠で囲まれている箇所は，現在の状態が<b class="b">母音配列</b>か<b class="s">子音配列</b>かを示しています。茶色で塗られている方が現在の状態です。
+    </p>
+    <hr>
+    <img src="keyhairetusetumei.png">
+    <p>
+        右下赤枠で囲まれている箇所は，現在のキーボードの配列の状態を示しています。Q-ELF配列とQWERTY配列と二つの状態があります。
+    </p>
+    <h1>母音配列</h1>
+    <p>子音配列状態の時，矢印のあるキーを押すと以下のような画像の配列  <b class="b">母音配列</b>  (一部省略(後述))へと変遷します。(前述参照)</p>
+    <img src="keyboin.png" />
+    <hr>
+    <p>
+        <b class="s">子音配列</b>時，<kbd>母音</kbd><kbd>S</kbd><kbd>M</kbd><kbd>T</kbd><kbd>Y</kbd>つまり左側のキーを押すと以下のように変化します。
+    </p>
+    <img src="keydakusen.png">
+    <p>
+
+        各キーの上にある<b>濁</b>，<b>清</b>，の文字はその母音を選択した時，子音がどう変化するかを示しています。<br />
+
+        <b>清</b>の表示があるキーを押すと子音が清音のまま打ち込まれます。<br>
+        <b>濁</b>の表示があるキーを押すと子音が濁音に変化します。但し，対応する濁音がないときは変化しません。
+    </p>
+    <h4>変化例</h4>
+    <ul>
+        <li>S→Z</li>
+        <li>T→D</li>
+        <li>M→M</li>
+        <li>Y→Y</li>
+    </ul>
+    <h4>例示</h4>
+    <ul>
+        <li><kbd>S</kbd>を押した後<kbd>A(清)</kbd>を押すと"<b>さ</b>"と入力されます。</li>
+        <li><kbd>S</kbd>を押した後<kbd>A(濁)</kbd>を押すと"<b>ざ</b>"と入力されます。</li>
+        <li><kbd>T</kbd>を押した後<kbd>U(清)</kbd>を押すと"<b>つ</b>"と入力されます。</li>
+        <li><kbd>T</kbd>を押した後<kbd>O(濁)</kbd>を押すと"<b>ど</b>"と入力されます。</li>
+        <li><kbd>M</kbd>を押した後<kbd>I(清)</kbd>を押すと"<b>み</b>"と入力されます。</li>
+        <li><kbd>M</kbd>を押した後<kbd>U(濁)</kbd>を押すと"<b>む</b>"と入力されます。</li>
+        <li><kbd>母音</kbd>を押した後<kbd>E(清)</kbd>を押すと"<b>え</b>"と入力されます。</li>
+        <li><kbd>母音</kbd>を押した後<kbd>I(濁)</kbd>を押すと"<b>い</b>"と入力されます。</li>
+    </ul>
+    <hr>
+
+    <p>
+        <b class="s">子音配列</b>時，<kbd>H</kbd><kbd>N</kbd><kbd>K</kbd><kbd>R</kbd><kbd>W</kbd>，つまり右側のキーを押すと以下のように変化します。
+    </p>
+    <img src="keyseidaku.png">
+    <p>
+        左側のキーを押した時とは<b>清</b>と<b>濁</b>の配置が逆になります。<br />
+        清濁の変化は左側の例と同じです。<br>
+    </p>
+
+    <h1>キー説明</h1>
+    <b>拗音</b>,<b>促音</b>は母音のキーを押す前に押してください。<kbd>S</kbd>→<kbd>拗音</kbd>→<kbd>O(清)</kbd>や<kbd>拗音</kbd>→<kbd>S</kbd>→<kbd>O(清)</kbd>で<kbd>S</kbd><kbd>Y</kbd><kbd>O</kbd>が入力できます。<br />
+    拗音や促音を押した場合，それに対応する欄が茶色に塗られます。
+    <dt>拗音</dt>
+    <dd>子音に小さい <b>ゃゅょ</b> 等を挿入します。具体的には子音と母音の間に<kbd>Y</kbd>を挿入します。例えば，<kbd>S</kbd>→<kbd>拗音</kbd>→<kbd>O(清)</kbd>で<kbd>S</kbd><kbd>Y</kbd><kbd>O</kbd>が入力されます。</dd>
+    <dt>促音</dt>
+    <dd>子音の前に小さい <b>っ</b> 等を挿入します。具体的には子音を二回入力します。例えば，<kbd>T</kbd>→<kbd>促音</kbd>→<kbd>E(濁)</kbd>で <kbd>D</kbd><kbd>D</kbd><kbd>E</kbd> が入力されます。</dd>
+    <dt>NN</dt>
+    <dd><b>ん</b>を挿入します。具体的には<kbd>N</kbd><kbd>N</kbd>を入力します。例えば，<kbd>K</kbd>→<kbd>A(清)</kbd>→<kbd>NN</kbd>→<kbd>N</kbd>→<kbd>A</kbd>で <kbd>K</kbd><kbd>A</kbd><kbd>N</kbd><kbd>N</kbd><kbd>N</kbd><kbd>A</kbd> が入力されます。</dd>
+    <dt>Enter</dt>
+    <dd>改行します。</dd>
+    <dt>BackSpace</dt>
+    <dd>一文字削除します。</dd>
+    <h1>状態遷移について</h1>
+    <ul>
+        <li><kbd>Ctrl</kbd>を押している間，<b>QWERTY配列</b>になります。 <span class="info-icon">ℹ️<span class="tooltip-text">ショートカットキーに対する配慮です。</span></li>
+        <li><b>Q-ELF配列</b>時，<kbd>L</kbd>を押すと<b>QWERTY配列</b>に切り替わります。その後，<b>QWERTY配列</b>で<kbd>L</kbd>が押されます。 <span class="info-icon">ℹ️<span class="tooltip-text">SKKでは<kbd>L</kbd>を押すと日本語配列から英語配列に切り替わるからです。</span></li>
+        <li><b>Q-ELF配列</b>時，<kbd>Space</kbd>を5回連続で押すと<b>QWERTY配列</b>になります。切替わり後1回<kbd>A</kbd><kbd>S</kbd><kbd>D</kbd><kbd>F</kbd><kbd>J</kbd><kbd>K</kbd><kbd>L</kbd>のいずれかのを押すとそのキーを押した後，<b>Q-ELF</b>配列に切替わります。前述のキーと<kbd>Space</kbd>以外を押すとそのキーを押し<b>Q-ELF配列</b>へと切替わります。 <span class="info-icon">ℹ️<span class="tooltip-text">SKKでは，予測変換時<kbd>Space</kbd>を5回連続で押すと<kbd>A</kbd><kbd>S</kbd><kbd>D</kbd><kbd>F</kbd><kbd>J</kbd><kbd>K</kbd><kbd>L</kbd>で表示される変換一覧から選ぶ為です。なお，この時<kbd>L</kbd>を選んでも<b>QWERTY配列</b>にはなりません(前項参照)。</span></li>
+        <li><b>QWERTY配列</b>時，<kbd>Ctrl</kbd><kbd>J</kbd>を押すと<b>Q-ELF配列</b>に切り替わります。<span class="info-icon">ℹ️<span class="tooltip-text">SKKでは，<kbd>Ctrl</kbd><kbd>J</kbd>で英語配列から日本語配列へと切り替わるためです。</span></li>
+    </ul>
+    <h1>その他Tips</h1>
+    <ul>
+        <li><b class="s">子音配列</b>または<b class="b">母音配列</b>もしくはその両方の時，<kbd>Shift</kbd>を押しながら入力すると平仮名入力時に<kbd>Shift</kbd>を押しながら入力します。<span class="info-icon">ℹ️<span class="tooltip-text">SKKに近い打鍵感の実現のためです。</span></li>
+        <li><b>Q-ELF配列</b>時，<b>QWERTY配列</b>時における<kbd>M</kbd><span class="info-icon">ℹ️<span class="tooltip-text"><b>Q-ELF配列</b>時における<kbd>BackSpace</kbd>を一意に特定出来るようにする為の言い回しです。</span>を押すと，様々な状態がリセットされます。(その時<b class="b">母音配列</b>ならば<b class="s">子音配列</b>になるみたいな)</li>
+    </ul>
+</body>
+</html>
